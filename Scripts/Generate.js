@@ -59,7 +59,7 @@ for (var i = 0; i < questions.length; i++) {
   userAnswer = (document.querySelector('input[name=question'+i+']:checked')||{}).value;
   answerContainers[i]=userAnswer;
 		// if answer is correct
-		 if(userAnswer===questions[i].correctAnswer){
+		 if(userAnswer===questions[i].correctAnswer){ 
 		// 	// add to the number of correct answers
 	 	window.numCorrect++;
 		// color the answers green
@@ -70,7 +70,7 @@ for (var i = 0; i < questions.length; i++) {
 	}
 
   resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
- 
+
   }
 showQuestions (questions,quizContainer);
 showResults(myQuestions,quizContainer,resultsContainer)
