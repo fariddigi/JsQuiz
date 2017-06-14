@@ -54,29 +54,28 @@ function generateQuiz(questions,quizContainer,resultsContainer,submitButton) {
 function showResults(questions,quizContainer,resultsContainer) {
 var answerContainers= quizContainer.querySelector('.answers');
 var userAnswer='';
-var numCorrect=0;
+window.numCorrect=0;
 for (var i = 0; i < questions.length; i++) {
-  userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
-
+  userAnswer = (document.querySelector('input[name=question'+i+']:checked')||{}).value;
+  answerContainers[i]=userAnswer;
 		// if answer is correct
-		if(userAnswer===questions[i].correctAnswer){
-			// add to the number of correct answers
-			numCorrect++;
-
-			// color the answers green
-			answerContainers[i].style.color = 'lightgreen';
-		}
+		 if(userAnswer===questions[i].correctAnswer){
+		// 	// add to the number of correct answers
+	 	window.numCorrect++;
+		// color the answers green
+		//answerContainers[i].style.color = 'lightgreen';
+	}
 		// if answer is wrong or blank
-		else{
-			// color the answers red
-			answerContainers[i].style.color = 'red';
-		}}
+
+	}
 
   resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
 
   }
 showQuestions (questions,quizContainer);
+showResults(myQuestions,quizContainer,resultsContainer)
+
 submitButton.onclick =function (){
-  showResults(questions,quizContainer,resultsContainer)
+  showResults(myQuestions,quizContainer,resultsContainer)
 }
 }
