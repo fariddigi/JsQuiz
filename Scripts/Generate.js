@@ -61,7 +61,7 @@ for (var i = 0; i < questions.length; i++) {
 		// if answer is correct
 		 if(userAnswer===questions[i].correctAnswer){
 		// 	// add to the number of correct answers
-	 	numCorrect++;
+	 	window.numCorrect++;
 		// color the answers green
 		//answerContainers[i].style.color = 'lightgreen';
 	}
