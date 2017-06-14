@@ -70,7 +70,7 @@ for (var i = 0; i < questions.length; i++) {
 	}
 
   resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
-
+ 
   }
 showQuestions (questions,quizContainer);
 showResults(myQuestions,quizContainer,resultsContainer)
