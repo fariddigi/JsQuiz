@@ -54,14 +54,14 @@ function generateQuiz(questions,quizContainer,resultsContainer,submitButton) {
 function showResults(questions,quizContainer,resultsContainer) {
 var answerContainers= quizContainer.querySelector('.answers');
 var userAnswer='';
-window.numCorrect=0;
+numCorrect=0;
 for (var i = 0; i < questions.length; i++) {
   userAnswer = (document.querySelector('input[name=question'+i+']:checked')||{}).value;
   answerContainers[i]=userAnswer;
 		// if answer is correct
-		 if(userAnswer===questions[i].correctAnswer){ 
+		 if(userAnswer===questions[i].correctAnswer){
 		// 	// add to the number of correct answers
-	 	window.numCorrect++;
+	 	numCorrect++;
 		// color the answers green
 		//answerContainers[i].style.color = 'lightgreen';
 	}
