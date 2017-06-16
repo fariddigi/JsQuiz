@@ -1,21 +1,11 @@
 var myQuestions = [
 	{
 		question: "What is 10/2?",
-		answers: {
-			a: '3',
-			b: '5',
-			c: '115'
-		},
-		correctAnswer: 'b'
+		correctAnswer: '5'
 	},
 	{
 		question: "What is 30/3?",
-		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
-		},
-		correctAnswer: 'c'
+		correctAnswer: '10'
 	}
 ];
 window.onload = function what(){
@@ -33,17 +23,13 @@ function generateQuiz(questions,quizContainer,resultsContainer,submitButton) {
     var answers;
     for (var i = 0; i < questions.length; i++) {
       answers=[];
-      for(letter in questions[i].answers){
-
-			// ...add an html radio button
+			// ...add an html edit text
 			answers.push(
 				'<label>'
-					+ '<input type="radio" name="question'+i+'" value="'+letter+'">'
-					+ letter + ': '
-					+ questions[i].answers[letter]
+					+ '<input type="text" name="question'+i+'">'
 				+ '</label>'
 			);
-		}
+
     output.push(
 			'<div class="question">' + questions[i].question + '</div>'
 			+ '<div class="answers">' + answers.join('') + '</div>'
@@ -56,7 +42,7 @@ var answerContainers= quizContainer.querySelector('.answers');
 var userAnswer='';
 numCorrect=0;
 for (var i = 0; i < questions.length; i++) {
-  userAnswer = (document.querySelector('input[name=question'+i+']:checked')||{}).value;
+  userAnswer = (document.querySelector('input[name=question'+i+']')||{}).value;
   answerContainers[i]=userAnswer;
 		// if answer is correct
 		 if(userAnswer===questions[i].correctAnswer){
